@@ -137,7 +137,7 @@ class FeatureTests(TestCase):
                 table.inner_text(),
                 msg="table did not have 'Account' header in it'",
             )
-
+    
     def test_div_tag_has_a_table_tag_when_receipts_exist_with_receipt_fields(
         self,
     ):
@@ -176,9 +176,19 @@ class FeatureTests(TestCase):
                     msg="table did not have receipt tax in it",
                 )
                 self.assertIn(
+                    receipt.date.strftime("%m/%d/%y"),
+                    inner_text,
+                    msg="table did not have well formatted receipt date in it",
+                )
+                self.assertIn(
                     str(receipt.category.name),
                     inner_text,
                     msg="table did not have category name in it",
+                )
+                self.assertIn(
+                    str(receipt.account.name),
+                    inner_text,
+                    msg="table did not have account name in it",
                 )
                 self.assertIn(
                     str(receipt.account.name),

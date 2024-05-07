@@ -123,21 +123,6 @@ class FeatureTests(TestCase):
             html=True,
         )
 
-    def test_receipts_list_shows_date(self):
-        # Arrange
-        self.login()
-        noors_receipt, _ = self.create_test_receipts()
-
-        # Act
-        response = self.client.get("/receipts/")
-        # Assert
-        self.assertContains(
-            response,
-            noors_receipt.date.strftime("%m/%d/%y"),
-            msg_prefix="Did not find the date formatted as m/d/YY in the HTML",
-            html=True,
-        )
-
     def test_receipts_list_shows_category_name(self):
         # Arrange
         self.login()
