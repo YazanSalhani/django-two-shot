@@ -17,8 +17,12 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
 
+def redirect_to_receipts_page(request):
+    return redirect("home")
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("receipts/", include("receipts.urls")),
+    path('', redirect_to_receipts_page),
 ]
