@@ -137,7 +137,7 @@ class FeatureTests(TestCase):
                 table.inner_text(),
                 msg="table did not have 'Account' header in it'",
             )
-    
+
     def test_div_tag_has_a_table_tag_when_receipts_exist_with_receipt_fields(
         self,
     ):
